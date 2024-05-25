@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title></title>
+    <link href="/2024/05/25/1.%E6%A6%82%E5%BF%B5/"/>
+    <url>/2024/05/25/1.%E6%A6%82%E5%BF%B5/</url>
+    
+    <content type="html"><![CDATA[<h3 id="docker解决的问题"><a href="#docker解决的问题" class="headerlink" title="docker解决的问题"></a>docker解决的问题</h3><h5 id="系统环境不一致"><a href="#系统环境不一致" class="headerlink" title="系统环境不一致"></a>系统环境不一致</h5><p>开发:我本地没问题.运维:服务器没问题. 这个问题就变成了皮球.</p><p>如果一个应用要正常的启动起来需要什么?比如java web应用.</p><p>需要一个操作系统,操作系统之上要jdk,tomcat,我们的代码,配置文件.</p><p>操作系统的改变可能会导致我们的应用开不起来,比如我们调用了某些系统命令.</p><p>jdk版本也可能导致程序的运行失败.比如class文件需要1.7编译,我们装了个1.6的jdk.</p><p>tomcat版本也能导致失败,比如旧的版本一些配置在新版本中不再支持.</p><p>代码的话就比如应用了C盘,D盘的一个文件,或者是用了系统的一些环境编码.</p><p>配置的话我们可能少了某个配置文件等等.</p><p>下面docker来了,它把操作系统,jdk,tomcat,代码,配置全部放到集装箱里.再打包放到鲸鱼上,由鲸鱼给我们送到服务器上,在我的机器上怎么运行,在别的机器上也怎么运行.不会有任何的问题.一句话就是docker解决了运行环境不一致所带来的问题.</p><h5 id="系统好卡-哪个哥们又写死循环了"><a href="#系统好卡-哪个哥们又写死循环了" class="headerlink" title="系统好卡,哪个哥们又写死循环了"></a>系统好卡,哪个哥们又写死循环了</h5><p>如果有根别人共用服务器的同学可能有这样的体会,莫名其妙发现自己的程序挂了,一查原因要不是内存不够了,要不是硬盘满了,还有就是发现某个服务变慢了,甚至敲终端都比较卡,但是linux本身就是一个多用户的操作系统本身就可以供多个用户使用,docker的隔离性可以解决这个问题,就算别人的程序还是死循环疯狂吃CPU,还是封装疯狂打日志把硬盘占满,还是内存泄漏,把内存占满,都不会导致我们的程序运行错误.<strong>因为docker在启动的时候就限定好了,它最大使用的CPU硬盘,如果超过了,就会杀掉对应进程.</strong></p><h5 id="双11来了-服务器撑不住了"><a href="#双11来了-服务器撑不住了" class="headerlink" title="双11来了,服务器撑不住了"></a>双11来了,服务器撑不住了</h5><p>大部分系统业务量并不是每天都比较平均的,特别是一些电商系统,每天总有那么几天业务量是平时的几倍甚至几十倍,如果按双11的规模去准备服务器那么对于平时的规模来说又是极大的浪费,所以就在节日前临时扩展机器,过完节再把多余的节点下线,这就给运维带来了非常大的工作量,一到过节就在各个机器上部署各种各样的服务,我们启动程序需要java,tocmat等等,并且还可能起不来还要调试,这是非常恶心的工作,有了docker一切都变得美好了,只要点一下服务器就可以从10台变成100台甚至1000,1W台.都是分分钟的事情.</p><p>为什么会这么快呢?都是用标准的方式把我们的程序运过来,下载过来,再用标准的方式把它运行起来,就可以做到只要在每台机器上都执行一两条命令,就可以让程序正常跑起来,并且不用担心有问题.</p><h3 id="走进docker"><a href="#走进docker" class="headerlink" title="走进docker"></a>走进docker</h3><h5 id="仓库，镜像，容器"><a href="#仓库，镜像，容器" class="headerlink" title="仓库，镜像，容器"></a>仓库，镜像，容器</h5><p>镜像就是上面说的集装箱,仓库就是超级码头,容器就是我们运行程序的地方.docker运行程序的过程就是去仓库把镜像拉到本地,然后用一条命令把镜像运行起来变成容器.</p><h5 id="运行流程"><a href="#运行流程" class="headerlink" title="运行流程"></a>运行流程</h5><p><img src="/./assets/image-20240305105951404.png" alt="image-20240305105951404"></p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="/2024/05/25/hello-world/"/>
+    <url>/2024/05/25/hello-world/</url>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  
+</search>
